@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: nearyou-app
+  datasource:
+    url: jdbc:postgresql://localhost:5432/nearyou
+    username: postgres
+    password: postgres
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+      maximum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1200000
+  jpa:
+    hibernate:
+      ddl-auto: update # Use 'validate' in production
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+        default_schema: public
+    show-sql: true
+    open-in-view: false # Avoid potential performance issues
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    id.nearyou.app: DEBUG
