@@ -29,6 +29,12 @@ server:
   servlet:
     context-path: /api
 
+security:
+  jwt:
+    secret-key: c34a2528d9c7d3c4d03b27a1fd969b1c37d2ea9ff9d78e8cf70fccd46b3c9f60 # Generate a secure key for production
+    expiration: 86400000 # 24 hours in milliseconds
+    refresh-expiration: 604800000 # 7 days in milliseconds
+
 logging:
   level:
     org.hibernate.SQL: DEBUG
